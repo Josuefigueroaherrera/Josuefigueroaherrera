@@ -1,0 +1,94 @@
+package com.company;
+
+import java.sql.SQLOutput;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Coche coche = new Coche();
+        coche.Acelerar(50);
+
+        var resultado = suma(2 , 5);
+        System.out.println(resultado);
+    }
+
+    public static int suma( int operandoA, int operandoB) {
+        return operandoA + operandoB;
+    }
+}
+interface Vehiculo {
+    void Acelerar(int cuantaVelocidad);
+    void Frenar(int cuantaVelocidad);
+}
+    class Coche implements Vehiculo {
+        public void Acelerar(int cuantaVelocidad) {
+
+        }
+            public void Frenar(int cuantaVelocidad){
+
+            }
+}
+-----------------------------------------------------------------------------------------------
+package com.company;
+
+import java.sql.SQLOutput;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Coche coche = new Coche();
+        cocheChanger(coche);
+        cocheChanger(coche);
+
+        System.out.println(coche.velocidad);
+        suma(10,20);
+    }
+    public static void suma(int a,int b) {
+        var temp = a + b;
+        System.out.println("A vale " + a + " b vale " + b + " temp vale " + temp);
+        if (a >= 90){
+            return;
+    }
+    suma(a,temp);
+    }
+                //FFORRMA RECURSIVAA SE LLAMA ASI MISMA
+    public static int factorial (int numero) {
+        int resultado;
+        if (numero ==1) {
+            return 1;
+        }
+
+        resultado = factorial (numero -1) * numero;
+        return resultado;
+    }
+                //FORMA NO RECURSIVA
+    public static int factorialNR(int numero) {
+        int temp;
+        int resultado =1;
+
+        for (temp = 1; temp <= numero; temp++) {
+    resultado = resultado * temp;
+        }
+        return resultado;
+    }
+    public static void cocheChanger (Coche coche) {
+        coche.velocidad += 50; // coche.velocidad += coche.velocidad +50; es la forma larga las dos
+        //significa lo mismo
+
+    }
+}
+
+interface Vehiculo {
+    void Acelerar(int cuantaVelocidad);
+    void Frenar(int cuantaVelocidad);
+}
+
+class Coche implements Vehiculo {
+    int velocidad = 0;
+    public void Acelerar(int cuantaVelocidad) {
+        System.out.println("Coche() -> Acelerar()");
+    }
+    public void Frenar(int cuantaVelocidad){
+        System.out.println("Coche() -> Frenar()");
+    }
+}
